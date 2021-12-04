@@ -22,8 +22,10 @@ const App = () => {
   return (
     <Root>
       <IntlProvider>
-        <Header />
-        <code>{JSON.stringify(firebaseApp.options, null, 2)}</code>
+        <div className="container">
+          <Header />
+          <code>{JSON.stringify(firebaseApp.options, null, 2)}</code>
+        </div>
       </IntlProvider>
     </Root>
   )
