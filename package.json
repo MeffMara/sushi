@@ -1,22 +1,16 @@
 {
   "name": "frontend-starter",
   "version": "1.0.0",
-  "private": false,
   "license": "MIT",
   "scripts": {
-    "start": "cross-env BROWSER=none craco start",
-    "build": "cross-env NODE_ENV=production BUILD_PATH='./docs' craco build",
+    "start": "vite",
+    "build": "cross-env NODE_ENV=production tsc && vite build",
     "pretty": "prettier --check src",
     "lint": "yarn pretty && eslint --max-warnings 0 --ext ts,tsx,json src",
-    "generate-css-types": "tailwindcss-classnames -o src/classnames/tailwind.ts && prettier --write \"src/classnames/tailwind.ts\"",
+    "generate-css-types": "tailwindcss-classnames -o src/classnames/tailwind.ts && prettier --write src/classnames/tailwind.ts",
     "prestart": "yarn generate-css-types",
     "prebuild": "yarn generate-css-types",
     "update": "yarn build && git add . && git commit -m 'update' && git push"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app"
-    ]
   },
   "browserslist": {
     "production": [
@@ -31,33 +25,38 @@
     ]
   },
   "dependencies": {
-    "firebase": "^9.5.0",
-    "mobx": "^6.3.6",
-    "mobx-persist-store": "^1.0.4",
-    "mobx-react-lite": "^3.2.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-intl": "^5.21.0",
-    "unfetch": "^4.2.0"
+    "@borodutch-labs/localize-react": "^1.7.4",
+    "@vitejs/plugin-react": "^1.0.9",
+    "preact": "^10.5.15",
+    "unfetch": "^4.2.0",
+    "valtio": "^1.2.6"
   },
   "devDependencies": {
-    "@craco/craco": "^6.4.0",
-    "@types/node": "^16.11.6",
-    "@types/react": "^17.0.33",
-    "@types/react-dom": "^17.0.10",
+    "@preact/preset-vite": "^2.1.5",
+    "@types/node": "^16.11.7",
+    "@types/react": "^17.0.34",
+    "@typescript-eslint/eslint-plugin": "^5.3.1",
+    "@typescript-eslint/parser": "^5.3.1",
     "autoprefixer": "^9",
     "cross-env": "7.0.3",
-    "eslint": "^7.32.0",
+    "eslint": "^8.2.0",
     "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-no-relative-import-paths": "^1.0.8",
     "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-react": "^7.26.1",
+    "eslint-plugin-react": "^7.27.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
     "eslint-plugin-sort-imports-es6-autofix": "^0.6.0",
+    "eslint-plugin-valtio": "^0.4.1",
     "postcss": "^7",
     "prettier": "^2.4.1",
     "react-scripts": "^4.0.3",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat",
+    "rollup-plugin-visualizer": "^5.5.2",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2",
     "tailwindcss-classnames": "^2.2.5",
-    "typescript": "^4.4.4"
-  }
+    "typescript": "^4.4.4",
+    "vite": "^2.6.14",
+    "vite-tsconfig-paths": "^3.3.17"
+  },
+  "packageManager": "yarn@3.1.0"
 }

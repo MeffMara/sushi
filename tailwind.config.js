@@ -1,5 +1,4 @@
 /** @type {import("@types/tailwindcss/tailwind-config").TailwindConfig } */
-const colors = require('tailwindcss/colors')
 module.exports = {
   purge: ['./public/index.html', './src/**/!(tailwind).{ts,tsx}'],
   theme: {
@@ -14,7 +13,6 @@ module.exports = {
         gold: {
           dark: '#FA6641',
           light: '#EAE100',
-          yellow: '#FF9846',
         },
       },
       borderRadius: {
